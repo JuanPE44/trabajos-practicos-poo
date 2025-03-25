@@ -38,37 +38,44 @@ public class Persona {
   private double peso;
   private double altura;
 
+  private static final String SEXO_DEFECTO = "Femenino";
+  private static final String NOMBRE_DEFECTO = "N";
+  private static final String APELLIDO_DEFECTO = "N";
+  private static final int PESO_DEFECTO = 1;
+  private static final int ALTURA_DEFECTO = 1;
+  private static final LocalDate FECHA_DEFECTO = LocalDate.of(2000, 1, 1);;
+
   public Persona(int DNI) {
     this.DNI = DNI;
-    this.fechaNacimiento = LocalDate.of(2000, 1, 1);
+    this.fechaNacimiento = FECHA_DEFECTO;
     this.edad = calcularEdad();
-    this.sexo = "Femenino";
-    this.nombre = "N";
-    this.apellido = "N";
-    this.peso = 1;
-    this.altura = 1;
+    this.sexo = SEXO_DEFECTO;
+    this.nombre = NOMBRE_DEFECTO;
+    this.apellido = APELLIDO_DEFECTO;
+    this.peso = PESO_DEFECTO;
+    this.altura = ALTURA_DEFECTO;
   }
 
   public Persona(int DNI, String nombre, String apellido) {
     this.DNI = DNI;
-    this.fechaNacimiento = LocalDate.of(2000, 1, 1);
+    this.fechaNacimiento = FECHA_DEFECTO;
     this.edad = calcularEdad();
-    this.sexo = "Femenino";
-    this.nombre = nombre;
-    this.apellido = apellido;
-    this.peso = 1;
-    this.altura = 1;
+    this.sexo = SEXO_DEFECTO;
+    this.nombre = NOMBRE_DEFECTO;
+    this.apellido = APELLIDO_DEFECTO;
+    this.peso = PESO_DEFECTO;
+    this.altura = ALTURA_DEFECTO;
   }
 
   public Persona(int DNI, String nombre, String apellido, LocalDate fechaNacimiento) {
     this.DNI = DNI;
     this.fechaNacimiento = fechaNacimiento;
     this.edad = calcularEdad();
-    this.sexo = "Femenino";
-    this.nombre = nombre;
-    this.apellido = apellido;
-    this.peso = 1;
-    this.altura = 1;
+    this.sexo = SEXO_DEFECTO;
+    this.nombre = NOMBRE_DEFECTO;
+    this.apellido = APELLIDO_DEFECTO;
+    this.peso = PESO_DEFECTO;
+    this.altura = ALTURA_DEFECTO;
   }
 
   public double calcularIMC() {
