@@ -1,21 +1,33 @@
+
+/*
+Matriz de enteros, es una matriz que posee 2 dimensiones y permite guardar y
+obtener elementos
+*/
+
 public class Matriz {
-  int dimension = 2;
-  int[][] matriz;
+  private int fila = 2;
+  private int columna = 2;
+  private int[][] matriz;
 
   public Matriz() {
-    this.matriz = new int[dimension][dimension];
+    this.matriz = new int[fila][columna];
   }
 
-  public Matriz(int dimension) {
-    this.dimension = dimension;
-    this.matriz = new int[dimension][dimension];
+  public Matriz(int fila, int comlumna) {
+    this.matriz = new int[fila][columna];
   }
 
   public void guardarEntero(int fila, int columna, int elemento) {
+    if (fila >= this.fila && columna >= this.columna && fila < 0 && columna > 0) {
+      throw new IndexOutOfBoundsException("Índice fuera de rango");
+    }
     this.matriz[fila][columna] = elemento;
   }
 
   public int getEntero(int fila, int columna) {
+    if (fila >= this.fila && columna >= this.columna && fila < 0 && columna > 0) {
+      throw new IndexOutOfBoundsException("Índice fuera de rango");
+    }
     return this.matriz[fila][columna];
   }
 }
