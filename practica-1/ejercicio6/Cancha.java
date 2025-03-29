@@ -3,18 +3,20 @@ import java.util.ArrayList;
 
 public class Cancha {
   private String nombre;
+  private int id;
   private int precio;
   private int horaInicio = 14;
   private int horaFin = 19;
   private ArrayList<Horario> horariosOcupados = new ArrayList<Horario>();
 
-  public Cancha(String nombre, int precio) {
+  public Cancha(String nombre, int precio, int id) {
+    this.id = id;
     this.nombre = nombre;
     this.precio = precio;
   }
 
-  public Cancha(String nombre, int precio, int horaInicio, int horaFin) {
-    this(nombre, precio);
+  public Cancha(String nombre, int precio, int id, int horaInicio, int horaFin) {
+    this(nombre, precio, id);
     this.horaInicio = horaInicio;
     this.horaFin = horaFin;
   }
@@ -78,5 +80,13 @@ public class Cancha {
 
   public String getNombre() {
     return this.nombre;
+  }
+
+  public int getId() {
+    return this.id;
+  }
+
+  public int getPrecio() {
+    return this.precio;
   }
 }

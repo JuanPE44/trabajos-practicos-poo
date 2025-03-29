@@ -10,14 +10,10 @@ identificar los objetos, y luego definir la funcionalidad que debe tener cada un
 en cuenta el significado de cada uno de los objetos reconocidos, implementar en Java 
 */
 
-import java.time.LocalDate;
-
 public class Main {
   public static void main(String[] args) {
     Usuario user = new Usuario("pepe");
-    LocalDate fechaHoy = LocalDate.now();
     GestorTurnos gestor = new GestorTurnos();
-    System.out.println("Bienvenido " + user.getNombreUsuario() + "!");
     System.out.println();
     gestor.mostrarMenu();
   }
