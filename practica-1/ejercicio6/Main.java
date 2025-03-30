@@ -12,9 +12,8 @@ en cuenta el significado de cada uno de los objetos reconocidos, implementar en 
 
 public class Main {
   public static void main(String[] args) {
-    Usuario user = new Usuario("pepe");
     GestorTurnos gestor = new GestorTurnos();
-    System.out.println();
-    gestor.mostrarMenu();
+    Interfaz interfazGestor = new Interfaz(gestor);
+    interfazGestor.iniciarMenu();
   }
 }

@@ -5,8 +5,7 @@ public class Cancha {
   private String nombre;
   private int id;
   private int precio;
-  private int horaInicio = 14;
-  private int horaFin = 19;
+
   private ArrayList<Horario> horariosOcupados = new ArrayList<Horario>();
 
   public Cancha(String nombre, int precio, int id) {
@@ -15,13 +14,7 @@ public class Cancha {
     this.precio = precio;
   }
 
-  public Cancha(String nombre, int precio, int id, int horaInicio, int horaFin) {
-    this(nombre, precio, id);
-    this.horaInicio = horaInicio;
-    this.horaFin = horaFin;
-  }
-
-  public ArrayList<Horario> obtenerHorariosDisponibles(LocalDate fecha) {
+  public ArrayList<Horario> obtenerHorariosDisponibles(LocalDate fecha, int horaInicio, int horaFin) {
     ArrayList<Horario> horariosDisponibles = new ArrayList<Horario>();
     ArrayList<Horario> horariosOcupadosFecha = obtenerHorariosOcupados(fecha);
     for (int i = horaInicio; i < horaFin; i++) {
@@ -53,11 +46,6 @@ public class Cancha {
   }
 
   public void agregarHorarioOcupado(int hora, LocalDate fecha) {
-    if (hora < horaInicio || hora > horaFin) {
-      System.out.println("Hora fuera de rango");
-      return;
-    }
-
     if (existeHorarioOcupado(hora, fecha)) {
       System.out.println("Este horario esta ocupado");
       return;
