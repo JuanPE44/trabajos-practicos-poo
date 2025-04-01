@@ -65,7 +65,7 @@ public class Interfaz {
     System.out
         .println(GRIS + "Gestor Turnos (" + usuarioActual.getNombreUsuario()
             + (usuarioActual.getEsSocio() ? " es socio" : " no es socio") + ")" + RESET);
-    System.out.println("1. Sacar turno");
+    System.out.println("1. Agregar turno");
     System.out.println("2. Cambiar fecha");
     System.out.println("3. Volverme socio");
     System.out.println("4. Salir");
@@ -94,12 +94,12 @@ public class Interfaz {
           int index = i * columnas + j;
           if (index < totalCanchas) {
             Cancha cancha = gestor.getCanchas().get(index);
-            List<Horario> horarios = cancha.obtenerHorariosDisponibles(gestor.getFechaActual(),
+            List<Turno> turnos = cancha.obtenerTurnos(gestor.getFechaActual(),
                 gestor.getHoraInicio(), gestor.getHoraFin());
-            if (filaActual < horarios.size()) {
-              Horario horario = horarios.get(filaActual);
-              String color = horario.getDisponibilida() ? VERDE : ROJO;
-              System.out.printf("%s%-20s%s", color, horario.getHora(), RESET);
+            if (filaActual < turnos.size()) {
+              Turno turno = turnos.get(filaActual);
+              String color = turno.getDisponibilidad() ? VERDE : ROJO;
+              System.out.printf("%s%-20s%s", color, turno.getHora(), RESET);
               hayMasHorarios = true;
             } else {
               System.out.printf("%-20s", "");

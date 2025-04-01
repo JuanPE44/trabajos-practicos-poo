@@ -1,29 +1,44 @@
-public class Turno {
-  private Usuario usuario;
-  private Cancha cancha;
-  private Horario horario;
-  private double precio;
+import java.time.LocalDate;
 
-  public Turno(Usuario usuario, Cancha cancha, Horario horario) {
-    this.usuario = usuario;
+public class Turno {
+  private Cancha cancha;
+  private double precio;
+  private int hora;
+  private boolean disponible = true;
+  private LocalDate fecha;
+
+  public Turno(Cancha cancha, int hora, LocalDate fecha) {
     this.cancha = cancha;
-    this.horario = horario;
-    this.precio = usuario.getEsSocio() ? cancha.getPrecio() * 0.9 : cancha.getPrecio();
+    this.hora = hora;
+    this.fecha = fecha;
   }
 
-  public String getNombreUsuario() {
-    return this.usuario.getNombreUsuario();
+  public Turno(Cancha cancha, int hora, LocalDate fecha, boolean disponible) {
+    this(cancha, hora, fecha);
+    this.disponible = disponible;
   }
 
   public Cancha getCancha() {
     return this.cancha;
   }
 
-  public Horario getHorario() {
-    return this.horario;
-  }
-
   public double getPrecio() {
     return this.precio;
+  }
+
+  public int getHora() {
+    return this.hora;
+  }
+
+  public LocalDate getFecha() {
+    return this.fecha;
+  }
+
+  public void setDisponible(boolean disponible) {
+    this.disponible = disponible;
+  }
+
+  public boolean getDisponibilidad() {
+    return this.disponible;
   }
 }

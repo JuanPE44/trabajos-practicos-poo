@@ -3,7 +3,6 @@ import java.util.ArrayList;
 
 public class GestorTurnos {
   private ArrayList<Cancha> canchas = new ArrayList<Cancha>();
-  private ArrayList<Turno> turnos = new ArrayList<Turno>();
   private ArrayList<Usuario> socios = new ArrayList<Usuario>();
   private int horaInicio = 14;
   private int horaFin = 19;
@@ -35,10 +34,15 @@ public class GestorTurnos {
     }
 
     Cancha canchaSeleccionada = obtenerCancha(canchaId);
-    canchaSeleccionada.agregarHorarioOcupado(hora, fechaActual);
-    Turno turno = new Turno(usuario, canchaSeleccionada, new Horario(hora, fechaActual));
+
+    if (!canchaSeleccionada.turnoDisponible(hora, fechaActual)) {
+      System.out.println("El horario esta ocupado");
+      return;
+    }
+    canchaSeleccionada.agregarTurnoOcupado(hora, fechaActual);
+    Turno turno = canchaSeleccionada.obtenerTurno(hora, fechaActual);
+    turno.setDisponible(false);
     usuario.agregarTurno(turno);
-    this.turnos.add(turno);
   }
 
   public void agregarSocio(Usuario usuario) {
@@ -47,7 +51,7 @@ public class GestorTurnos {
       return;
     }
 
-    if (obtenerTurnosUltimosDosMeses(usuario).size() < 4) {
+    if (usuario.obtenerTurnosUltimosDosMeses().size() < 4) {
       System.out.println("El usuario no cumple con la condicion de ser socio");
       return;
     }
@@ -62,16 +66,6 @@ public class GestorTurnos {
       }
     }
     return false;
-  }
-
-  public ArrayList<Turno> obtenerTurnosUltimosDosMeses(Usuario usuario) {
-    ArrayList<Turno> turnos = new ArrayList<Turno>();
-    for (Turno turno : usuario.getHistorialTurnos()) {
-      if (!turno.getHorario().getFecha().isBefore(LocalDate.now().minusMonths(2))) {
-        turnos.add(turno);
-      }
-    }
-    return turnos;
   }
 
   public Cancha obtenerCancha(int canchaId) {
@@ -97,10 +91,6 @@ public class GestorTurnos {
 
   public LocalDate getFechaActual() {
     return this.fechaActual;
-  }
-
-  public ArrayList<Turno> getTurnos() {
-    return this.turnos;
   }
 
   public ArrayList<Cancha> getCanchas() {
