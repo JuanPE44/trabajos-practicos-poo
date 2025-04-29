@@ -13,14 +13,16 @@ public class SistemaSiembra {
   public void inicializar() {
     ArrayList<Mineral> mineralesTrigo = new ArrayList<>(Arrays.asList(Mineral.COBRE, Mineral.AZUFRE));
     ArrayList<Mineral> mineralesMaiz = new ArrayList<>(Arrays.asList(Mineral.FOSFORO, Mineral.NITROGENO));
+    ArrayList<Mineral> mineralesPastura = new ArrayList<>(Arrays.asList(Mineral.HIERRO, Mineral.CALCIO));
 
     mineralesInteresPrimario.add(Mineral.SODIO);
     mineralesInteresPrimario.add(Mineral.ZINC);
     mineralesInteresPrimario.add(Mineral.BORO);
     mineralesInteresPrimario.add(Mineral.AZUFRE);
 
-    cereales.add(new Cereal("Trigo", TipoCereal.FINO, mineralesTrigo));
-    cereales.add(new Cereal("Maiz", TipoCereal.GRUESO, mineralesMaiz));
+    cereales.add(new Cereal("Trigo", mineralesTrigo));
+    cereales.add(new Cereal("Maiz", mineralesMaiz));
+    cereales.add(new Pastura("Pastura", mineralesPastura));
 
   }
 
