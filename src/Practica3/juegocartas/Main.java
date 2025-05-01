@@ -7,11 +7,13 @@ puntos se lleva las cartas. El jugador que gana coloca todas las cartas (las
 suyas y las del oponente) en su pila de cartas ganadas. En caso de empate,
 se reparte una carta más a cada jugador hasta que uno de los dos gane.
 Implementar los mazos como pilas de cartas. La carta tiene un número y un
-palo de la baraja. 
+palo de la baraja.
 */
 
 package src.Practica3.juegocartas;
 
 public class Main {
+  public static void main(String[] args) {
 
+  }
 }
