@@ -1,26 +1,27 @@
 package src.Practica4.centrocomputo;
 
-public class Proceso implements Comparable<Proceso> {
+public class Proceso {
   private static int contadorId = 0;
   private int id;
   private int requerimientoMemoria;
-  private boolean disponible = true;
+  private int tiempoProceso;
 
-  public Proceso(int id, int requerimientoMemoria) {
+  public Proceso(int id, int requerimientoMemoria, int tiempoProceso) {
     this.id = ++contadorId;
     this.requerimientoMemoria = requerimientoMemoria;
+    this.tiempoProceso = tiempoProceso;
   }
 
   public int getId() {
     return id;
   }
 
-  public int getRequerimientoMemoria() {
-    return requerimientoMemoria;
+  public int getTiempoRestante() {
+    return tiempoProceso;
   }
 
-  public boolean isDisponible() {
-    return disponible;
+  public int getRequerimientoMemoria() {
+    return requerimientoMemoria;
   }
 
   public void setId(int id) {
@@ -31,13 +32,12 @@ public class Proceso implements Comparable<Proceso> {
     this.requerimientoMemoria = requerimientoMemoria;
   }
 
-  public void setDisponible(boolean disponible) {
-    this.disponible = disponible;
+  public static int getContadorId() {
+    return contadorId;
   }
 
-  @Override
-  public int compareTo(Proceso otro) {
-    return Integer.compare(otro.getRequerimientoMemoria(), this.requerimientoMemoria);
+  public int getTiempoProceso() {
+    return tiempoProceso;
   }
 
 }

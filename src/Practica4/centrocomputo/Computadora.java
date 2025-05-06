@@ -1,14 +1,33 @@
 package src.Practica4.centrocomputo;
 
-public class Computadora implements Comparable<Computadora> {
+public class Computadora {
   private int id;
   private double velocidad;
   private double memoria;
+  private double memoriaDisponible;
   private Proceso procesoActual;
 
   public Computadora(int id, double velocidad, double memoria) {
     this.id = id;
     this.velocidad = velocidad;
+    this.memoria = memoria;
+    this.memoriaDisponible = memoria;
+  }
+
+  public boolean ejecutarProceso(Proceso proceso) {
+    if (proceso.getRequerimientoMemoria() <= memoriaDisponible) {
+      memoriaDisponible -= proceso.getRequerimientoMemoria();
+      return true;
+    }
+    return false;
+  }
+
+  public boolean estaLlena() {
+    return memoriaDisponible <= 0;
+  }
+
+  public void liberarMemoria(Proceso proceso) {
+    memoriaDisponible += proceso.getRequerimientoMemoria();
   }
 
   public void setProceso(Proceso proceso) {
@@ -29,11 +48,6 @@ public class Computadora implements Comparable<Computadora> {
 
   public double getMemoria() {
     return memoria;
-  }
-
-  @Override
-  public int compareTo(Computadora otra) {
-    return Double.compare(otra.getVelocidad(), this.velocidad);
   }
 
 }
