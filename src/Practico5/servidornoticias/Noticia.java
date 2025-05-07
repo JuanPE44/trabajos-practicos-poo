@@ -14,6 +14,23 @@ public class Noticia {
     this.cuerpo = new ArrayList<Contenido>();
   }
 
+  public boolean isCuerpoContienePalabra(String palabra) {
+    for (Contenido contenido : cuerpo) {
+      if (contenido.contienePalabra(contenido.getTexto(), palabra)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public boolean isCuerpoMaxPalabra(int maxPalabras) {
+    int contador = 0;
+    for (Contenido contenido : cuerpo) {
+      contador += contenido.contarPalabras(contenido.getTexto());
+    }
+    return (contador <= maxPalabras);
+  }
+
   public String getTitulo() {
     return titulo;
   }

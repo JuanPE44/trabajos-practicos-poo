@@ -1,6 +1,6 @@
 package src.Practico5.servidornoticias;
 
-public class CondicionNOT extends Condicion {// gay
+public class CondicionNOT extends Condicion {
     private Condicion cond1;
 
     public CondicionNOT(Condicion cond1) {

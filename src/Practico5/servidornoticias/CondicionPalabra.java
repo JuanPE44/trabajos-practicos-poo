@@ -11,22 +11,6 @@ public class CondicionPalabra extends Condicion {
 
   @Override
   public boolean cumple(Noticia noticia) {
-    List<Contenido> auxCuerpo = noticia.getCuerpo();
-    for (Contenido contenido : auxCuerpo) {
-      if (contienePalabra(contenido.getPalabras(contenido.getTexto()), palabra)) {
-        return true;
-      }
-    }
-    return false;
+    return noticia.isCuerpoContienePalabra(palabra);
   }
-
-  public boolean contienePalabra(String[] palabras, String palabra) {
-    for (String p : palabras) {
-      if (p.equals(palabra)) {
-        return true;
-      }
-    }
-    return false;
-  }
-
 }

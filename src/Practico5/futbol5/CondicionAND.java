@@ -1,4 +1,4 @@
-package src.Practico5.servidornoticias;
+package src.Practico5.futbol5;
 
 public class CondicionAND extends Condicion {
   private Condicion cond1;
@@ -10,7 +10,7 @@ public class CondicionAND extends Condicion {
   }
 
   @Override
-  public boolean cumple(Noticia a) {
-    return cond1.cumple(a) && cond2.cumple(a);
+  public boolean cumple(Socio socio) {
+    return cond1.cumple(socio) && cond2.cumple(socio);
   }
 }
