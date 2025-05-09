@@ -6,11 +6,17 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "src.Examenes.parcial20240618.Main",
+      "projectName": "trabajos-practicos-poo_b80b95bf"
+    },
+    {
+      "type": "java",
       "name": "Current File",
       "request": "launch",
       "mainClass": "${file}"
-    },
-   
+    }
   ]
 }
 
