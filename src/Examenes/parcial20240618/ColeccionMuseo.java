@@ -3,5 +3,23 @@ package src.Examenes.parcial20240618;
 import java.util.List;
 
 public abstract class ColeccionMuseo {
-  public abstract List<Articulo> getArticulos(String condicion);
+  protected String nombre;
+
+  public ColeccionMuseo(String nombre) {
+    this.nombre = nombre;
+  }
+
+  public abstract Articulo getArticulos(String condicion);
+
+  public abstract double getPrecio();
+
+  public abstract int getCantidadArticulos();
+
+  public abstract Articulo getArticuloMayorValor();
+
+  public abstract ColeccionMuseo getCopia(Condicion condicion);
+
+  public String getNombre() {
+    return nombre;
+  }
 }

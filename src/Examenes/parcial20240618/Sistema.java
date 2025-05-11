@@ -5,4 +5,9 @@ import java.util.List;
 
 public class Sistema {
   private List<ColeccionMuseo> colecciones = new ArrayList<ColeccionMuseo>();
+
+  public void agregar(ColeccionMuseo c) {
+    colecciones.add(c);
+  }
+
 }
