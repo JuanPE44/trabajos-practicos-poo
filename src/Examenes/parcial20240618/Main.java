@@ -43,11 +43,5 @@ public class Main {
     }
 
     // Artículo filtrado por descripción exacta (usando getArticulos)
-    Articulo encontrado = col2.getArticulos("Moderno");
-    if (encontrado != null) {
-      System.out.println("Se encontró artículo con descripción 'Moderno': " + encontrado.getNombre());
-    } else {
-      System.out.println("No se encontró artículo con descripción 'Moderno'");
-    }
   }
 }

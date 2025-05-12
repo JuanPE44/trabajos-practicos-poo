@@ -9,8 +9,6 @@ public abstract class ColeccionMuseo {
     this.nombre = nombre;
   }
 
-  public abstract Articulo getArticulos(String condicion);
-
   public abstract double getPrecio();
 
   public abstract int getCantidadArticulos();

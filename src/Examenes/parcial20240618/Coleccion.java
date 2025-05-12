@@ -7,7 +7,7 @@ public class Coleccion extends ColeccionMuseo {
   private static double PORCENTAJE_MAX_TOPE = 0.75;
   private List<ColeccionMuseo> colecciones = new ArrayList<>();
   private double porcentajeArticuloExtra;
-  private static double tope = 75;
+  private static double tope = 0.75;
 
   public Coleccion(String nombre, double porcentajeArticuloExtra) {
     super(nombre);
@@ -16,14 +16,6 @@ public class Coleccion extends ColeccionMuseo {
 
   public void agregar(ColeccionMuseo c) {
     colecciones.add(c);
-  }
-
-  public int sumaPrecioArticulos() {
-    int sumaPrecio = 0;
-    for (ColeccionMuseo coleccion : colecciones) {
-      sumaPrecio += coleccion.getPrecio();
-    }
-    return sumaPrecio;
   }
 
   @Override
@@ -40,18 +32,14 @@ public class Coleccion extends ColeccionMuseo {
 
   @Override
   public double getPrecio() {
-    if (porcentajeArticuloExtra > PORCENTAJE_MAX_TOPE)
-      return tope;
 
-    return sumaPrecioArticulos() + (porcentajeArticuloExtra * getCantidadArticulos());
-  }
-
-  @Override
-  public Articulo getArticulos(String condicion) {
+    int sumaPrecio = 0;
     for (ColeccionMuseo coleccion : colecciones) {
-      return coleccion.getArticulos(condicion);
+      sumaPrecio += coleccion.getPrecio();
     }
-    return null;
+    if (porcentajeArticuloExtra > PORCENTAJE_MAX_TOPE)
+      return sumaPrecio + sumaPrecio * (tope * getCantidadArticulos());
+    return sumaPrecio + sumaPrecio * (porcentajeArticuloExtra * getCantidadArticulos());
   }
 
   @Override

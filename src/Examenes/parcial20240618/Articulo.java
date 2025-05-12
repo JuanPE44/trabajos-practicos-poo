@@ -20,15 +20,6 @@ public class Articulo extends ColeccionMuseo {
   }
 
   @Override
-  public Articulo getArticulos(String condicion) {
-    // if(Condicion.cumple())
-    if (condicion.equals(descripcion)) {
-      return this;
-    }
-    return null;
-  }
-
-  @Override
   public int getCantidadArticulos() {
     return 1;
   }
