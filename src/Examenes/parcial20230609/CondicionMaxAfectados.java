@@ -1,14 +1,14 @@
 package src.Examenes.parcial20230609;
 
-public class CondicionAfectados extends Condicion {
+public class CondicionMaxAfectados extends Condicion {
   public int empleadosAfectados;
 
-  public CondicionAfectados(int empleadosAfectados) {
+  public CondicionMaxAfectados(int empleadosAfectados) {
     this.empleadosAfectados = empleadosAfectados;
   }
 
   @Override
-  public boolean cumple(PresupuestoBasico presupuesto) {
+  public boolean cumple(Presupuesto presupuesto) {
     return presupuesto.getEmpleadosAfectados() < empleadosAfectados;
   }
 }

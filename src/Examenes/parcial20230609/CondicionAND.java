@@ -9,7 +9,7 @@ public class CondicionAND extends Condicion {
     this.c2 = c2;
   }
 
-  public boolean cumple(PresupuestoBasico presupuesto) {
+  public boolean cumple(Presupuesto presupuesto) {
     return c1.cumple(presupuesto) && c2.cumple(presupuesto);
   }
 

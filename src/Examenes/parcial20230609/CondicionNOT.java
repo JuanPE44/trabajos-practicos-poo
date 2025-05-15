@@ -7,7 +7,7 @@ public class CondicionNOT extends Condicion {
     this.condicion = condicion;
   }
 
-  public boolean cumple(PresupuestoBasico presupuesto) {
+  public boolean cumple(Presupuesto presupuesto) {
     return !condicion.cumple(presupuesto);
   }
 }

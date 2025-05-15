@@ -8,7 +8,7 @@ public class CondicionTiempo extends Condicion {
   }
 
   @Override
-  public boolean cumple(PresupuestoBasico presupuesto) {
+  public boolean cumple(Presupuesto presupuesto) {
     return presupuesto.getTiempo() < tiempo;
   }
 }

@@ -1,14 +1,14 @@
 package src.Examenes.parcial20230609;
 
-public class PoliticaEmpleados extends Politica {
+public class CondicionMaxIgualAfectados extends Condicion {
   private int minimoEmpleados;
 
-  public PoliticaEmpleados(int minimoEmpleados) {
+  public CondicionMaxIgualAfectados(int minimoEmpleados) {
     this.minimoEmpleados = minimoEmpleados;
   }
 
   @Override
-  public boolean puedeAgregar(PresupuestoComplejo presupuesto) {
+  public boolean cumple(Presupuesto presupuesto) {
     return presupuesto.getEmpleadosAfectados() >= minimoEmpleados;
   }
 }

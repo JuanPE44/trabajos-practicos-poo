@@ -3,7 +3,7 @@ package src.Examenes.parcial20230609;
 import java.util.List;
 
 public class PresupuestoComplejoAcotado extends PresupuestoComplejo {
-  private Politica politica;
+  private Condicion politica;
 
   public PresupuestoComplejoAcotado(String nombre, List<Presupuesto> presupuestos, double descuento) {
     super(nombre, presupuestos, descuento);
@@ -11,7 +11,7 @@ public class PresupuestoComplejoAcotado extends PresupuestoComplejo {
 
   @Override
   public void addPresupuesto(Presupuesto presupuesto) {
-    if (politica.puedeAgregar(this)) {
+    if (politica.cumple(this)) {
       super.addPresupuesto(presupuesto);
     }
   }

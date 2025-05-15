@@ -7,7 +7,7 @@ public class CondicionMaterial extends Condicion {
     this.material = material;
   }
 
-  public boolean cumple(PresupuestoBasico presupuesto) {
+  public boolean cumple(Presupuesto presupuesto) {
     return presupuesto.getMateriales().contains(material);
   }
 }
