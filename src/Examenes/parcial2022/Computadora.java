@@ -1,5 +1,8 @@
 package src.Examenes.parcial2022;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Computadora extends ElementoComputadora {
   private double valor;
   private int antiguedad;
@@ -24,6 +27,15 @@ public class Computadora extends ElementoComputadora {
   @Override
   public int getAntiguedad() {
     return antiguedad;
+  }
+
+  @Override
+  public List<Computadora> getElementos(Condicion condicion) {
+    List<Computadora> lista = new ArrayList<>();
+    if (condicion.cumple(this)) {
+      lista.add(this);
+    }
+    return lista;
   }
 
 }

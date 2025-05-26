@@ -57,7 +57,7 @@ public class Interfaz {
     input.close();
   }
 
-  private void mostrarMenu() {
+  pkrivate void mostrarMenu() {
     System.out.println();
     System.out.println();
     System.out.println();
@@ -74,7 +74,7 @@ public class Interfaz {
     System.out.print("Selecione una opcion: ");
   }
 
-  public void mostrarHorariosDisponibles(int columnas) {
+awdjawdajdajwkdajwkda  public void mostrarHorariosDisponibles(int columnas) {
     System.out.println(AZUL + "Horarios disponibles " + gestor.getFechaActual() + ": " + RESET);
     int totalCanchas = gestor.getCanchas().size();
     int filas = (int) Math.ceil((double) totalCanchas / columnas);

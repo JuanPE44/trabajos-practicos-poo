@@ -34,4 +34,14 @@ public class CombosArmados extends ElementoComputadora {
     }
     return maxAntiguedad;
   }
+
+  @Override
+  public List<Computadora> getElementos(Condicion condicion) {
+    List<Computadora> lista = new ArrayList<>();
+    for (ElementoComputadora elemento : elementos) {
+      lista.addAll(elemento.getElementos(condicion));
+    }
+    return lista;
+  }
+
 }

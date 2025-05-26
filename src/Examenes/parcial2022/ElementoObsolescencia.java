@@ -11,6 +11,18 @@ public class ElementoObsolescencia extends ElementoComputadora {
     this.elementoContenido = elementoContenido;
   }
 
+  public double getPorcentaje() {
+    return porcentaje;
+  }
+
+  public int getMesesEnvejesimiento() {
+    return mesesEnvejesimiento;
+  }
+
+  public ElementoComputadora getElementoContenido() {
+    return elementoContenido;
+  }
+
   @Override
   public double getValor() {
     if (elementoContenido.getAntiguedad() < mesesEnvejesimiento) {
@@ -26,16 +38,5 @@ public class ElementoObsolescencia extends ElementoComputadora {
     return elementoContenido.getAntiguedad();
   }
 
-  public double getPorcentaje() {
-    return porcentaje;
-  }
-
-  public int getMesesEnvejesimiento() {
-    return mesesEnvejesimiento;
-  }
-
-  public ElementoComputadora getElementoContenido() {
-    return elementoContenido;
-  }
-
+  
 }
