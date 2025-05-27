@@ -1,5 +1,7 @@
 package src.Examenes.parcial2022;
 
+import java.util.List;
+
 public class ElementoObsolescencia extends ElementoComputadora {
   private double porcentaje = 0.2;
   private int mesesEnvejesimiento;
@@ -38,5 +40,8 @@ public class ElementoObsolescencia extends ElementoComputadora {
     return elementoContenido.getAntiguedad();
   }
 
-  
+  @Override
+  public List<Computadora> getElementos(Condicion condicion) {
+    return elementoContenido.getElementos(condicion);
+  }
 }
