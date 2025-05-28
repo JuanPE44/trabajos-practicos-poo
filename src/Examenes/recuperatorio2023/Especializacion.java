@@ -32,12 +32,15 @@ public class Especializacion extends Curso {
     return total;
   }
 
-  /*
-   * @Override
-   * public double getPrecio(Alumno alumno) {
-   * 
-   * }
-   */
+  @Override
+  public double getPrecio(Alumno alumno) {
+    double precio = 0;
+    for (Curso curso : cursos) {
+      precio = curso.getPrecio(alumno);
+    }
+    return precio;
+  }
+
   @Override
   public List<String> getPalabrasClave() {
     List<String> palabras = new ArrayList<>();
@@ -73,6 +76,20 @@ public class Especializacion extends Curso {
     for (Curso curso : cursos) {
       cursos.addAll(curso.getCursos(filtro));
     }
+    return cursos;
+  }
+
+  @Override
+  public boolean aprobo(Alumno alumno) {
+    for (Curso curso : cursos) {
+      if (!curso.aprobo(alumno))
+        return false;
+
+    }
+    return true;
+  }
+
+  public List<Curso> getCursos() {
     return cursos;
   }
 }

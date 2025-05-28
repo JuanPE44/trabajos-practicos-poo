@@ -27,6 +27,6 @@ public abstract class Curso {
 
   public abstract Curso getCursoMasCaro();
 
-  // public abstract boolean aprobo(Alumno);
+  public abstract boolean aprobo(Alumno alumno);
 
 }

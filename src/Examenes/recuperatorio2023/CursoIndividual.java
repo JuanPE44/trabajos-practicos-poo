@@ -25,12 +25,14 @@ public class CursoIndividual extends Curso {
     return precio;
   }
 
-  /*
-   * @Override
-   * public double getPrecio(Alumno alumno) {
-   * 
-   * }
-   */
+  @Override
+  public double getPrecio(Alumno alumno) {
+    if (aprobo(alumno)) {
+      return 0;
+    }
+    return getPrecio();
+  }
+
   @Override
   public int getCantHoras() {
     return cantHoras;
@@ -58,5 +60,14 @@ public class CursoIndividual extends Curso {
   @Override
   public Curso getCursoMasCaro() {
     return this;
+  }
+
+  @Override
+  public boolean aprobo(Alumno alumno) {
+    if (alumno.aprobo(this)) {
+      return true;
+    }
+    return false;
+
   }
 }

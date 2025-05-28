@@ -17,6 +17,26 @@ public class Alumno {
     this.cursosRendidos.add(curso);
   }
 
+  public boolean aprobo(CursoIndividual curso) {
+    CursoRendido cursoRendido = getRindioCurso(curso);
+    if (cursoRendido == null)
+      return false;
+
+    if (cursoRendido.getNota() > curso.getNotaMinima()) {
+      return true;
+    }
+    return false;
+  }
+
+  public CursoRendido getRindioCurso(Curso curso) {
+    for (CursoRendido cursoRendido : cursosRendidos) {
+      if (cursoRendido.equals(curso.getNombre())) {
+        return cursoRendido;
+      }
+    }
+    return null;
+  }
+
   public String getNombre() {
     return nombre;
   }
@@ -24,5 +44,4 @@ public class Alumno {
   public String getApellido() {
     return apellido;
   }
-
 }
